@@ -58,8 +58,8 @@ export default function FirebaseApp() {
 }
 ```
 
-![.](assets/1.png)
-![.](assets/2.png)
+![.](assets/1.PNG)
+![.](assets/2.PNG)
 
 <!-- ### `1. Run các Service`
 + BlogService (port: 9092)
