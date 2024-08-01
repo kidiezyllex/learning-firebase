@@ -61,6 +61,7 @@ export default function FirebaseApp() {
 
 ![.](assets/1.PNG)
 ![.](assets/2.PNG)
+<<<<<<< HEAD
 
 ## `4. onSnapshot - Truy xuất dữ liệu Collection realtime`
 
@@ -105,6 +106,8 @@ const handleRemoveDocument = async (e) => {
     await deleteDoc(colRefDelete);
   };
 ```
+=======
+>>>>>>> 753427e0769eff161d2f564e17072d07624e4ea5
 
 <!-- ### `1. Run các Service`
 + BlogService (port: 9092)
