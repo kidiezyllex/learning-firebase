@@ -30,7 +30,7 @@ export const auth = getAuth(app);
 
 ```
 
-## `3. Truy xuất dữ liệu Collection với getDocs`
+## `3. getDocs - Truy xuất dữ liệu Collection`
 
 ```
 import { collection, getDocs } from "firebase/firestore";
@@ -49,6 +49,7 @@ export default function FirebaseApp() {
             ...doc.data(),
           });
         });
+        setPosts(posts);
         console.log(posts);
       })
       .catch((err) => {
@@ -58,8 +59,52 @@ export default function FirebaseApp() {
 }
 ```
 
-![.](assets/1.png)
-![.](assets/2.png)
+![.](assets/1.PNG)
+![.](assets/2.PNG)
+
+## `4. onSnapshot - Truy xuất dữ liệu Collection realtime`
+
+```
+onSnapshot(colRef, (snapshot) => {
+      let posts = [];
+      snapshot.docs.forEach((doc) => {
+        posts.push({
+          id: doc.id,
+          ...doc.data(),
+        });
+      });
+      setPosts(posts);
+    });
+```
+
+## `5. addDoc - Thêm Document vào Collection`
+
+```
+addDoc(colRef, {
+    title, // data from State
+    author, // data from State
+    createdAt: serverTimestamp(),
+  })
+    .then(() => {
+      console.log("succcess");
+      // reset form
+    })
+    .catch((err) => {
+      console.log(err);
+      // reset form
+    });
+```
+
+## `6. deleteDoc - Xoá Document khỏi Collection`
+
+```
+const handleRemoveDocument = async (e) => {
+    e.preventDefault();
+    // Get document ID
+    const colRefDelete = doc(db, "posts", postId);
+    await deleteDoc(colRefDelete);
+  };
+```
 
 <!-- ### `1. Run các Service`
 + BlogService (port: 9092)
